@@ -1,7 +1,10 @@
 package com.example.onlinecourseandroidapp.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +54,11 @@ public class PopularCourseAdapter extends RecyclerView.Adapter<PopularCourseAdap
 
                 Intent i = new Intent(context, CourseDetails.class);
 
-                context.startActivity(i);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View, String>(holder.courseImage, "image");
+                ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity)context, pairs);
+
+                context.startActivity(i, activityOptions.toBundle());
 
             }
         });
