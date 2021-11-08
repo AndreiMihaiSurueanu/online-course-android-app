@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OnlineCourseAndroidApp</string>
+    <string name="hello_rajendra">Hello, Rajendra</string>
+    <string name="what_would_you_like_to_learn_today">What would you like to learn today?</string>
+    <string name="what_are_you_looking_for">What are you looking for?</string>
+    <string name="most_popular">Most Popular</string>
 </resources>
