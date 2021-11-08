@@ -3,6 +3,10 @@
 *.ap_
 *.aab
 
+# Project sources
+CourseApp2-master
+CourseApp2-master.zip
+
 # Files for the ART/Dalvik VM
 *.dex
 
