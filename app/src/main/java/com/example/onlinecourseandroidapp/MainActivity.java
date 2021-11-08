@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.onlinecourseandroidapp.adapter.CourseForYouAdapter;
 import com.example.onlinecourseandroidapp.adapter.PopularCourseAdapter;
 import com.example.onlinecourseandroidapp.model.CourseData;
+import com.example.onlinecourseandroidapp.model.CourseForYou;
 import com.example.onlinecourseandroidapp.model.PopularCourse;
 import com.example.onlinecourseandroidapp.retrofit.ApiInterface;
 import com.example.onlinecourseandroidapp.retrofit.RetrofitClient;
@@ -22,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     ApiInterface apiInterface;
 
-    RecyclerView popularRecycler;
+    RecyclerView popularRecycler, courseForYouRecycler;
     PopularCourseAdapter popularCourseAdapter;
+
+    CourseForYouAdapter courseForYouAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 List<CourseData> courseDataList = response.body();
 
                 setPopularRecycler(courseDataList.get(0).getPopularCourses());
+
+                setCourseForYouRecycler(courseDataList.get(0).getCourseForYou());
 
             }
 
@@ -62,6 +68,16 @@ public class MainActivity extends AppCompatActivity {
         popularRecycler.setLayoutManager(layoutManager);
         popularCourseAdapter = new PopularCourseAdapter(this, popularCourseList);
         popularRecycler.setAdapter(popularCourseAdapter);
+
+    }
+
+    private void setCourseForYouRecycler(List<CourseForYou> courseForYouList){
+
+        courseForYouRecycler = findViewById(R.id.course_for_you);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        courseForYouRecycler.setLayoutManager(layoutManager);
+        courseForYouAdapter = new CourseForYouAdapter(this, courseForYouList);
+        courseForYouRecycler.setAdapter(courseForYouAdapter);
 
     }
 }
