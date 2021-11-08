@@ -1,6 +1,7 @@
 package com.example.onlinecourseandroidapp.retrofit;
 
 import com.example.onlinecourseandroidapp.model.CourseData;
+import com.example.onlinecourseandroidapp.model.CourseDetail;
 
 import java.util.List;
 
@@ -11,5 +12,8 @@ public interface ApiInterface {
 
     @GET("coursedata.json")
     Call<List<CourseData>> getAllCourses();
+
+    @GET("video_lession.json")
+    Call<List<CourseDetail>> getAllLesson();
 
 }
