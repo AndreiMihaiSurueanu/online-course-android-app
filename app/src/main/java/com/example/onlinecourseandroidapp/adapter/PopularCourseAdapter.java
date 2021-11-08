@@ -1,6 +1,7 @@
 package com.example.onlinecourseandroidapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.onlinecourseandroidapp.CourseDetails;
 import com.example.onlinecourseandroidapp.R;
 import com.example.onlinecourseandroidapp.model.PopularCourse;
 
@@ -42,6 +44,17 @@ public class PopularCourseAdapter extends RecyclerView.Adapter<PopularCourseAdap
         holder.totalLessons.setText(popularCourseList.get(position).getTotalLesson());
 
         Glide.with(context).load(popularCourseList.get(position).getImageUrl()).into(holder.courseImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(context, CourseDetails.class);
+
+                context.startActivity(i);
+
+            }
+        });
     }
 
     @Override
